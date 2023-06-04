@@ -20,6 +20,7 @@ class Solution:
             freq[c].append(n)
         
         # At this point, we have a hashmap, where all numbers are sorted into respective frequency values
+        
         # Now, essentially iterate from highest to lowest values. When we get to the kth element, return. 
         res = []
         for i in range(len(freq) - 1, 0, -1):
