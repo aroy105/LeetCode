@@ -7,4 +7,18 @@ class Solution:
     Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
     """
     def maxProfit(self, prices: List[int]) -> int:
-        pass
+        res = 0
+        # Set the left side of the sliding window to the first element
+        # This should be the lowest price we buy stuff at
+        lowest = prices[0]
+        
+        # This will be the right side of our sliding window
+        for price in prices:
+            # If we find a lower price at which we can buy our stock
+            if price < lowest:
+                # Set this to the new left side of our sliding window
+                lowest = price
+            # Each day, check what our max capital appreciation is
+            res = max(res, price - lowest)
+        
+        return res
