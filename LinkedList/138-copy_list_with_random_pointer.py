@@ -21,4 +21,23 @@ class Solution:
     Your code will only be given the head of the original linked list.
     """
     def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
-        pass
+        # To solve this, we need to do two passes. In the first pass, we first generate the copies of the nodes, along with hashmaps that map nodes to their copies.
+        # In the second pass, we do all the pointer connections
+        
+        # Create and store the values of each node in a new copy, and have each node map to its copy. 
+        oldToCopy = {None: None} # This inital value of None: None covers the case where we are at the last node, and try to go to the next node
+        cur = head 
+        while cur:
+            copy = Node(cur.val)
+            oldToCopy[cur] = copy
+            cur = cur.next
+        
+        # Now make a second pass, and do all the connections
+        cur = head 
+        while cur:
+            copy = oldToCopy[cur]
+            copy.next = oldToCopy[cur.next]
+            copy.random = oldToCopy[cur.random]
+            cur = cur.next
+        
+        return oldToCopy[head]
