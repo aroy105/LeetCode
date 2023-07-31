@@ -12,7 +12,7 @@ class Solution:
             root.addWord(w)
 
         ROWS, COLS = len(board), len(board[0])
-        # Create results and visited set, visit helps us not get stuck in a loop
+        # Create results and visited set, visit helps us to not get stuck in a loop
         res, visit = set(), set()
         # Run DFS on each letter
         def dfs(r, c, node, word):
