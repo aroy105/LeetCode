@@ -40,7 +40,7 @@ class WordDictionary:
                             return True 
                     # At this point, we must have not found a matching child. 
                     return False 
-                # If the current character is not "."
+                # If current character is not "."
                 else:
                     # If the current character doesn't exist among the children of the previous node, return false. Otherwise, update pointer
                     if c not in cur.children:
