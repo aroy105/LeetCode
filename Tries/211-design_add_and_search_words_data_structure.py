@@ -25,7 +25,7 @@ class WordDictionary:
         """
         # Use dfs to go through all existing words
         def dfs(j, root):
-            # Set pointer to top of trie
+            # Set pointer to prespecified level. At beginning, this is top of trie, may later be top of subtrie
             cur = root 
             # Go through each letter in our specified substring, initially set to the whole word. Can be shorter given "."
             for i in range(j, len(word)):
