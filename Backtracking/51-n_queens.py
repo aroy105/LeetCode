@@ -45,6 +45,6 @@ class Solution:
                 negDiag.remove(r-c)
                 board[r][c] = "."
         
-        
+        # Start from row 0 (top row)
         backtrack(0)
         return res
