@@ -19,6 +19,5 @@ class Solution:
                 while (n + length) in numSet:
                     length += 1
                 longest = max(length, longest)
-
         # Once we've gone through the array, we should have the longest length
         return longest 
