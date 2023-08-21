@@ -4,7 +4,6 @@ class Solution:
         # If we think about it incrementally, when we have consecutive rectangles that increase or stay the same in height, we can kinda extend the rectangle 
         # Thus, if we have a larger rectangle and a smaller rectangle, the larger rectangle needs to be popped
         #
-        #
         #               X
         #           X   X
         #       X   X   X
