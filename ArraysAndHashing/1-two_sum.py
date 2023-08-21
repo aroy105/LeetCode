@@ -6,4 +6,4 @@ class Solution:
             diff = target - n # For each element, calculate the difference between the desired value and our value
             if diff in prevMap: # If this difference exists 
                 return [prevMap[diff], i] # Return the index and the current index
-            prevMap[n] = i  # Key: the number, value: the index
+            prevMap[n] = i  # Key: the number, value: the index 

@@ -9,4 +9,4 @@ class Solution:
         for i in range(len(s)): # Iterate through each character, increment for each character
             countS[s[i]] = 1 + countS.get(s[i], 0)
             countT[t[i]] = 1 + countT.get(t[i], 0)
-        return countS == countT # Determine if identical hashmaps are generated
+        return countS == countT # Determine if identical hashmaps are generated 
