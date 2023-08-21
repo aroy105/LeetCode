@@ -5,5 +5,6 @@ class Solution:
         for n in nums: # Iterate through every element in the list
             if n in hashset: # If a duplicate is found return true
                 return True
+            
             hashset.add(n) # Else add it to the hash set
         return False # If we reach this point, no duplicates can exist.
