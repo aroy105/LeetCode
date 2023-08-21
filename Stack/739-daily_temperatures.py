@@ -19,5 +19,4 @@ class Solution:
                 res[stackInd] = (i - stackInd)
             # Add the high temp day to the stack
             stack.append([t, i])
-    
         return res

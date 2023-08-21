@@ -14,7 +14,6 @@ class MinStack:
     # Essentially, our implementation will store tuples, where the first index stores the value, and the second index stores the min value at that point
     def __init__(self):
         self.stack = []
-
     # Create the tuple and push it. 
     # The tuple's min value is min(current value, previous tuple's min), but if it's the first value, then min value is just set to value. 
     def push(self, val: int) -> None:

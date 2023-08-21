@@ -5,7 +5,6 @@ class Solution:
         # Only add an open paranthesis if open < n
         # Only add a closing paranthesis if closed < open
         # We have a valid combo if and only if open == closed == n
-        
         stack = []
         res = []
         

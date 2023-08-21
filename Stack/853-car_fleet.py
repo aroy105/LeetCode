@@ -11,7 +11,6 @@ class Solution:
         # We can view this as a system of linear systems. 
         # Given the inital position and the speed, we can just see at what time they intersect, and determine the length of a fleet
         # If we calculate when they arrive at the desitination, any two that collide can be collapsed into a single unit
-        
         pair = [[p, s] for p, s in zip(position, speed)]
         stack = []
         for p, s in sorted(pair)[::-1]: # Reverse Sorted Order
