@@ -39,4 +39,4 @@ class Solution:
             # We can calculate the width as the total length of the heights, minus wherever the rectangle begins
             maxArea = max(maxArea, h * (len(heights) - i))
         
-        return maxArea
+        return maxArea 
