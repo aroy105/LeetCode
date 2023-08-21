@@ -8,7 +8,6 @@ class Solution:
         closeToOpen = {")":"(",
                       "}": "{",
                        "]": "["}
-
         for c in s:
             # If the character is a closing parenthesis
             if c in closeToOpen:
