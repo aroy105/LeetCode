@@ -29,7 +29,7 @@ class Solution:
             dfs(i, cur, total + candidates[i])
             # Don't include candidate, move to next candidate
             cur.pop()
-            dfs(i + 1, cur, total)
+            dfs(i + 1, cur, total) 
         
         dfs(0, [], 0)
         return res

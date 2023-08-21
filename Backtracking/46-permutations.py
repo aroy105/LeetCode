@@ -16,7 +16,7 @@ class Solution:
         # Create branches for all the remaining numbers
         for i in range(len(nums)):
             # Remove the value we just examined
-            n = nums.pop(0)
+            n = nums.pop(0) 
             # Recursively run this function on the rest of the integers, and return the result in perms
             perms = self.permute(nums)
             # To each generated permutation, add the value we removed to make it 

@@ -33,6 +33,5 @@ class Solution:
                 i += 1
             # push the pointer to the new value, and recursively go down second branch
             backtrack(i + 1, subset) 
-        
         backtrack(0, [])
         return res

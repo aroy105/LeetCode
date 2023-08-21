@@ -25,7 +25,6 @@ class Solution:
             for c in digitToChar[digits[i]]:
                 # Update the pointer, append the chosen branch's letter to the running string we have built
                 backtrack(i + 1, curStr + c)
-        
         # If the input isn't null, run backtracking. Then return the result. 
         if digits:
             backtrack(0, "")

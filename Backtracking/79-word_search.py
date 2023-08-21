@@ -10,7 +10,6 @@ class Solution:
         ROWS, COLS = len(board), len(board[0])
         # We will keep track of the path we take in a set, so we don't revisit already traversed coordinates
         path = set()
-        
         def dfs(r, c, i):
             # If we have found the word...
             if i == len(word):

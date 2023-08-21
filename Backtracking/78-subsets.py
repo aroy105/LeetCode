@@ -10,7 +10,6 @@ class Solution:
         # What we will do is go down this decision tree, where we choose or don't choose to add certain elements
         res = [] # Place answers here
         subset = []
-        
         def dfs(i):
             # Base Case, when we reach end of nums (no more elements/decision points to go down)
             if i >= len(nums):
