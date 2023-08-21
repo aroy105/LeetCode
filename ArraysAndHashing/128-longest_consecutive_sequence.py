@@ -21,4 +21,4 @@ class Solution:
                 longest = max(length, longest)
 
         # Once we've gone through the array, we should have the longest length
-        return longest
+        return longest 

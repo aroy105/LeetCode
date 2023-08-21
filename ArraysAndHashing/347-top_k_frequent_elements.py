@@ -7,7 +7,6 @@ class Solution:
         # However, we know that the max frequency of an element has to be the length of the list (n)
         # So what if we had a list-backed hashmap in the form frequency: number? The number of keys would max out at n given this observation
         # This is a kind of bucket sort
-
         count = {}
         freq = [[] for i in range(len(nums) + 1)]
 

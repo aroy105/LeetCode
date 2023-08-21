@@ -16,7 +16,7 @@ class Solution:
 
         res = [1] * (len(nums)) # Instead of doing zero, multiply by one, since this is the default value of the first position in the array
         
-        prefix = 1
+        prefix = 1 
         for i in range(len(nums)):
             res[i] = prefix
             prefix *= nums[i]
