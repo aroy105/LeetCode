@@ -8,4 +8,16 @@ class Solution:
     Return true if it is possible to obtain the target triplet [x, y, z] as an element of triplets, or false otherwise.
     """
     def mergeTriplets(self, triplets: List[List[int]], target: List[int]) -> bool:
-        pass
+        good = set()
+        # For each triplet
+        for t in triplets:
+            # If any triplet has a value that is greater than the corresponding target value we need, it is useless, so just skip it.
+            if t[0] > target[0] or t[1] > target[1] or t[2] > target[2]:
+                continue
+            # Go through each value in the triplet
+            for i, v in enumerate(t):
+                # If the value is equal to the target value, add it to the set. Remember, sets won't store duplicates
+                if v == target[i]:
+                    good.add(i)
+        # good will never exceed the size of 3, but it may undercount if only some of the target elements are reached
+        return len(good) == 3
