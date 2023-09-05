@@ -9,4 +9,44 @@ class Solution:
     Return a 2D list of grid coordinates result where result[i] = [ri, ci] denotes that rain water can flow from cell (ri, ci) to both the Pacific and Atlantic oceans.
     """
     def pacificAtlantic(self, heights: List[List[int]]) -> List[List[int]]:
-        pass
+        # While the intuition may be to visit each node and run dfs on it, there will be a lot of overlap, yielding a O((m*n)^2) complexity. 
+        # We can reduce this to O(m*n) by going from the Pacific ocean border, and seeing all the squares it can reach
+        # Do the same for the Atlantic Ocean, then find the overlap
+        ROWS, COLS = len(heights), len(heights[0])
+        pac, atl = set(), set() # Where we store squares the pacific and atlantic ocean can reach
+        
+        def dfs(r, c, visit, prevHeight):
+            if (
+                (r, c) in visit
+                or r < 0
+                or c < 0
+                or r == ROWS
+                or c == COLS
+                or heights[r][c] < prevHeight # If we can't go from the tile to the ocean, this is the base case
+            ):
+                return
+            visit.add((r, c))
+            dfs(r + 1, c, visit, heights[r][c])
+            dfs(r, c + 1, visit, heights[r][c])
+            dfs(r - 1, c, visit, heights[r][c])
+            dfs(r, c - 1, visit, heights[r][c])
+        
+        # Go along the columns
+        for c in range(COLS):
+            # Run DFS from the top left corner, along the top edge (Pacific Ocean)
+            dfs(0, c, pac, heights[0][c])
+            # Run DFS from the bottom left corner, along the bottom edge (Atlantic Ocean)
+            dfs(ROWS - 1, c, atl, heights[ROWS - 1][c])
+        
+        for r in range(ROWS):
+            # Run DFS from the top left corner, down the left edge (Pacific Ocean)
+            dfs(r, 0, pac, heights[r][0])
+            # Run DFS from the top right corner, down the right edge (Atlantic Ocean) 
+            dfs(r, COLS - 1, atl, heights[r][COLS - 1])
+        
+        res = []
+        for r in range(ROWS):
+            for c in range(COLS):
+                if (r, c) in pac and (r, c) in atl:
+                    res.append([r, c])
+        return res
