@@ -15,17 +15,25 @@ class Solution:
         # Create a minHeap to store min edges, and create a visited set
         minHeap = [(0, k)]
         visit = set()
-        
+        # Initialize the time
         t = 0
+        # We will run BFS, so while the heap still has elements 
         while minHeap:
+            # Pop the element in the heap which is closest to the source i.e. the one with the lowest time to reach
             w1, n1, = heapq.heappop(minHeap)
+            # If we have already visited this node previously, a quicker path already exists, so go to the next iteration
             if n1 in visit:
                 continue
+            # Add this node to the visited set
             visit.add(n1)
+            # Set t to the time it took to reach this node
             t = w1
-            
+            # For every neighbor of this node
             for n2, w2 in edges[n1]:
+                # If we haven't already visited the neighbor
                 if n2 not in visit:
+                    # Add this node to the heap, and set the time it takes to reach this node as (time it takes to reach n1) + (time to reach n2 from n1)
                     heapq.heappush(minHeap, (w1 + w2, n2))
+        # Return t if we were able to visit every node and check it via djikstras. If we couldn't reach every node, return -1
         return t if len(visit) == n else -1
         

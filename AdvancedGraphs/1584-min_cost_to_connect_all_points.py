@@ -6,7 +6,7 @@ class Solution:
     Return the minimum cost to make all points connected. All points are connected if there is exactly one simple path between any two points.
     """
     def minCostConnectPoints(self, points: List[List[int]]) -> int:
-        # This solution works, but speed and memory is dogshit
+        # This solution works, but speed and memory is not as good as others compared to LeetCode
         # Minimum Spanning Tree Problem - Can be solved via Prim's or Kruskal's Algo, and we'll use Prim's algo
         # First, we must get the edges i.e. the Manhattan Distances between all the points
         # Then we can just run Prim's Algo, since we're literally creating a minimum spanning tree
