@@ -1,3 +1,4 @@
+import math
 class Solution:
     """
     Given a signed 32-bit integer x, return x with its digits reversed. 
@@ -5,16 +6,28 @@ class Solution:
     Assume the environment does not allow you to store 64-bit integers (signed or unsigned).
     """
     def reverse(self, x: int) -> int:
-        # Our basic process will be to snip off numbers from the 0th to the 32nd bit, pad the zeros necessary, and then add it to our result from the 32nd bit to the 0th bit
-        
-        # This will be our starting bit for our result
-        result = 0
-        # Go through every bit from the start to the end
-        for i in range(32):
-            # This will be the bit we're currently transcribing. x >> i shifts it to the right by i bits, getting the ith MSB, and b & 1 stores a 1 if b is also 1. Otherwise, it just records 0
-            # It will first be 
-            bit = (x >> i) & 1
-            # We then leftshift by (32-i) bits, padding it with that many zeros from the right, and add it to our result
-            result += (bit << (31 - i))
-        
-        return result
+        # The provided NeetCode solution doesn't work, so had to use this new solution
+        # Create a list, where we strip numbers from the back, and place it to the front of the list
+        arr = []
+        # To handle the negative stuff, we'll treat everything as positive, and just create a variable that'll flip our number negative at the end
+        should_reverse = x < 0
+        if should_reverse:
+            x *= -1
+        # Whittle down every digit until we get to the last one
+        while (x // 10 > 0):
+            # Find the last digit, add it to our list, and whittle down x by one more digit
+            base = x % 10
+            arr.append(base)
+            x = x // 10
+        # Add that last digit that remains
+        arr.append(x)
+        # Now, iteratively add each number in sum. basically, for each digit, mutiply it by it's appropriate 10^n, and add it to our running sum
+        sum = 0
+        for i in range(len(arr)):
+            sum += ((10**(len(arr) - i - 1)) * arr[i])
+        # If our number was initially negative, go ahead and multiply it by -1 now
+        if should_reverse:
+            sum *= -1
+        # If our sum doesn't create overflow at each boundary then return the sum, otherwise return 0
+        meets_constraints = -2**31 <= sum and sum <= 2**31 - 1
+        return sum if meets_constraints else 0
