@@ -7,7 +7,7 @@ class Solution:
             return 0 # Edge case
         
         l, r = 0, len(height) - 1
-        leftMax, rightMax = height[1], height[r]
+        leftMax, rightMax = height[l], height[r]
         res = 0
         
         # Until our two pointers cross over each other
